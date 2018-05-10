@@ -1,21 +1,23 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button, Alert } from 'react-native';
+import { createStackNavigator } from 'react-navigation'
+import HomeScreen from './screens/HomeScreen'
+import Trivia from './screens/Trivia'
 
 export default class App extends React.Component {
-  constructor(){
-    super();
-    this.state = {
-      text: ''
-    }
-  }
+
   render() {
-    return 
-    <View style={styles.container}>
-        <TextInput onChangeText={(text)=>this.setState({text})} />
-        <Text>{this.state.text}</Text>
-      </View>
+    return( 
+    <AppStackNavigator/>
+    )
   }
 }
+
+const AppStackNavigator = new  createStackNavigator({
+  HomeScreen: {screen: HomeScreen},
+  Trivia: {screen: Trivia}
+})
+
 
 const styles = StyleSheet.create({
   container: {
@@ -24,4 +26,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  title:{
+    fontSize: 20
+  }
 });
