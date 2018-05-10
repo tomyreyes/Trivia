@@ -8,12 +8,10 @@ export default class App extends React.Component {
       text: ''
     }
   }
-  changeText = () => {
-    this.setState({text: })
-  }
   render() {
-    return <View style={styles.container}>
-        <TextInput onChange={this.changeText} />
+    return 
+    <View style={styles.container}>
+        <TextInput onChangeText={(text)=>this.setState({text})} />
         <Text>{this.state.text}</Text>
       </View>
   }
