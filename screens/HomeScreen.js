@@ -22,23 +22,17 @@ export default class HomeScreen extends React.Component {
     switch(id) {
       case '10':
       pressedCategory = 10
-      Alert.alert('Books')
       break;
       case '11':
       pressedCategory = 11
-      Alert.alert('Film')
       break;
       case '14':
       pressedCategory = 14
-      Alert.alert('Television')
       break;
       default:
       Alert.alert('category does not exist yet')
     }
-    this.setState({
-      category: pressedCategory
-    })
-    //this.props.navigation.navigate('Trivia')
+    this.props.navigation.navigate('Trivia', {id: pressedCategory}) 
   }
 
   render() {
