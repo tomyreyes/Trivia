@@ -47,9 +47,17 @@ export default class Trivia extends React.Component {
   render(){
     const { questions, questionNumber } = this.state
     const triviaQuestion = questions[questionNumber]
-
+    // const correctChoice = triviaQuestion.correct_answer
+    // const incorrectChoices = triviaQuestion.incorrect_answers
+    // const randomIndex = Math.floor(Math.random() * questions[questionNumber].incorrect_answers.length)
+    // const multipleChoiceArr = incorrectChoices.splice(randomIndex, 0, correctChoice)
+    // const { type } = questions[questionNumber]
+  
     // NEED ARRAY THAT CONTAINS MULTIPLE CHOICE 
-       
+    // const multipleChoice = triviaQuestion.incorrect_answers.map(choice => {
+
+    //   return <Button title={choice}/>
+    // })
 if(this.state.isLoading) {
     return(
       <View>
@@ -60,7 +68,10 @@ if(this.state.isLoading) {
   if(this.state.isLoading === false){
     return(
       <View>
-      <Text>{triviaQuestion.question}</Text>
+      {/* <Text>{triviaQuestion.questionNumber}</Text> */}
+        <Text>{triviaQuestion}</Text>
+      {/* <Text>{type}</Text> */}
+      {/* {multipleChoice} */}
       <Button title="Change" onPress={this.changeQuestion}/>
       </View>
     )
