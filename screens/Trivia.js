@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, Alert } from 'react-native';
+import axios from 'axios'
 
 export default class Trivia extends React.Component {
   constructor(){
@@ -9,31 +10,32 @@ export default class Trivia extends React.Component {
       questions: []
     }
   }
-  //componentWillMount
-  componentWillMount(){
-    let { id } = this.props.navigation.state.params
-    return fetch(`https://opentdb.com/api.php?amount=10&category=${id}&type=multiple`)
-      .then((response) => response.json())
-      .then((responseJson) => {
-        // console.error(responseJson.results)
-        this.setState({
-          questions: responseJson.results,
-          isLoading: false
-        })
-  })
-  .catch(error => {
-    console.error(error)
-  })
-}
 
-  render() {
+  componentDidMount(){
+    let { id } = this.props.navigation.state.params
+
+    axios.get(`https://opentdb.com/api.php?amount=10&category=${id}`)
+    .then(response => {
+      this.setState({
+        questions: response.data.results
+      })
+    })
+
+  }
+  
+  render(){
+    
+    let trivia = this.state.questions.map(((quest, i) =>{
+      return <Text key={i}>{quest.question}</Text>
+    }))
     return(
-      <View><Text>Hi</Text></View>
+      <View>
+        <Text>Hey</Text>
+        {trivia}
+      </View>
     )
   }
 }
-
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,

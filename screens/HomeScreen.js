@@ -12,13 +12,15 @@ export default class HomeScreen extends React.Component {
   constructor(){
     super();
     this.state = {
-      category: 0
+      category: 0,
+      questions: 0
     }
   }
 
   _onButtonPress = (e, id) =>{
     //id is returned as a string 
     let pressedCategory
+    let questions
     switch(id) {
       case '10':
       pressedCategory = 10
@@ -31,10 +33,10 @@ export default class HomeScreen extends React.Component {
       break;
       default:
       Alert.alert('category does not exist yet')
-    }
+    }  
     this.props.navigation.navigate('Trivia', {id: pressedCategory}) 
   }
-
+  
   render() {
     const ButtonCategory = categories.map(cat =>{
       return <Button key={cat.id} title={cat.category} onPress={(e)=> this._onButtonPress(e, `${cat.id}`)}/>
