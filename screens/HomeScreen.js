@@ -16,6 +16,7 @@ export default class HomeScreen extends React.Component {
       questions: 0
     }
   }
+  //EACH BUTTON WILL HAVE OWN METHOD
 
   _onButtonPress = (e, id) =>{
     //id is returned as a string 
@@ -36,8 +37,9 @@ export default class HomeScreen extends React.Component {
     }  
     this.props.navigation.navigate('Trivia', {id: pressedCategory}) 
   }
-  
+
   render() {
+    //INSTEAD OF MAPPING OUT A BUTTON, EACH BUTTON WILL BE SEPARATE ON HOMESCREEN UI
     const ButtonCategory = categories.map(cat =>{
       return <Button key={cat.id} title={cat.category} onPress={(e)=> this._onButtonPress(e, `${cat.id}`)}/>
     })
