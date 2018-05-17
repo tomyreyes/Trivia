@@ -2,18 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Button, Alert } from 'react-native';
 import axios from 'axios'
 
-export default class Trivia extends React.Component {
-  constructor(){
-    super();
-    this.state = {
-      isLoading: true,
-      questions: [],
-      questionNumber: 0
-    }
-  }
-
-  
-
+class Trivia extends React.Component {
   componentWillMount(){
     let { id } = this.props.navigation.state.params
 
@@ -93,3 +82,4 @@ const styles = StyleSheet.create({
   }
 });
 
+export default  Trivia

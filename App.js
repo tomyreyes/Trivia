@@ -11,13 +11,13 @@ export default class App extends React.Component {
   render() {
     return( 
     <Provider store={store}>
-    <AppStackNavigator/>
+    <MainNavigator/>
     </Provider>
     )
   }
 }
 
-const AppStackNavigator = new  createStackNavigator({
+const MainNavigator = new  createStackNavigator({
   HomeScreen: {screen: HomeScreen},
   Trivia: {screen: Trivia}
 })
