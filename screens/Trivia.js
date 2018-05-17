@@ -12,6 +12,8 @@ export default class Trivia extends React.Component {
     }
   }
 
+  
+
   componentWillMount(){
     let { id } = this.props.navigation.state.params
 
@@ -58,24 +60,25 @@ export default class Trivia extends React.Component {
 
     //   return <Button title={choice}/>
     // })
-if(this.state.isLoading) {
+// if(this.state.isLoading) {
     return(
       <View>
         <Text>Loading</Text>
       </View>
     )
-  }
-  if(this.state.isLoading === false){
-    return(
-      <View>
-      {/* <Text>{triviaQuestion.questionNumber}</Text> */}
-        <Text>{triviaQuestion}</Text>
-      {/* <Text>{type}</Text> */}
-      {/* {multipleChoice} */}
-      <Button title="Change" onPress={this.changeQuestion}/>
-      </View>
-    )
-  }
+  // }
+  // if(this.state.isLoading === false){
+  //   return(
+  //     <View>
+  //     {/* <Text>{triviaQuestion.questionNumber}</Text> */}
+  //       <Text>{triviaQuestion}</Text>
+  //     {/* <Text>{type}</Text> */}
+  //     {/* {multipleChoice} */}
+  //     <Button title="Change" onPress={this.changeQuestion}/>
+  //     </View>
+  //   )
+  // }
+  // }
   }
 }
 const styles = StyleSheet.create({

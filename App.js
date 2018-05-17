@@ -1,14 +1,18 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, Alert } from 'react-native';
+import { StyleSheet, Text, View} from 'react-native';
 import { createStackNavigator } from 'react-navigation'
 import HomeScreen from './screens/HomeScreen'
 import Trivia from './screens/Trivia'
+import { Provider } from 'react-redux'
+import store from './store'
 
 export default class App extends React.Component {
 
   render() {
     return( 
+    <Provider store={store}>
     <AppStackNavigator/>
+    </Provider>
     )
   }
 }
