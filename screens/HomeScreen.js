@@ -9,7 +9,7 @@ class HomeScreen extends React.Component {
   }
   _bookPress(){
     const bookId = 10
-    this.props.fetchCategoryRequest(bookId)
+    // this.props.fetchCategoryRequest(bookId)
     this.props.navigation.navigate('Trivia')
   }
 
