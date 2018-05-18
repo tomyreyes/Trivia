@@ -1,5 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, Alert } from 'react-native';
+import { connect } from 'react-redux'
+import { fetchCategoryRequest } from '../actions'
 
 class HomeScreen extends React.Component {
   static navigationOptions = () =>{
@@ -7,9 +9,8 @@ class HomeScreen extends React.Component {
   }
   _bookPress(){
     const bookId = 10
-    //when pressed need to dispatch an action which will then trigger saga to change state of store
-    //want to also navigate to a different screen as well
-    //dispatch({type: FETCH_CATEGORY, payload: id})
+    this.props.fetchCategoryRequest(bookId)
+    this.props.navigation.navigate('Trivia')
   }
 
   render() {
@@ -35,5 +36,11 @@ const styles = StyleSheet.create({
   }
 });
 
-export default HomeScreen
+mapDispatchToProps = () => {
+  return {
+    fetchCategoryRequest: fetchCategoryRequest
+  }
+}
+
+export default connect(null, mapDispatchToProps)(HomeScreen); //creates a prop that refers to our state or in this case action creator 
 

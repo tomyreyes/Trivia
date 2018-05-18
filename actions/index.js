@@ -1,9 +1,9 @@
-export const FETCH_CATEGORY = 'FETCH_CATEGORY'
+export const FETCH_CATEGORY_REQUEST = 'FETCH_CATEGORY_REQUEST'
 export const CHANGE_CATEGORY = 'CHANGE_CATEGORY'
 
-export const fetchCategory = (id) =>{
+export const fetchCategoryRequesrt = (id) =>{
   return {
-    type: FETCH_CATEGORY,
+    type: FETCH_CATEGORY_REQUEST,
     payload: id
   }
 }
