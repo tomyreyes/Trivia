@@ -1,32 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, Alert } from 'react-native';
+import { connect } from 'react-redux'
 class Trivia extends React.Component {
-  componentWillMount(){
-    
-  }
-
-  componentDidUpdate(prevProps, prevState){
-    if(prevState.questions !== this.state.questions){
-      this.setState({
-        isLoading: false,
-        questions: this.state.questions
-      })
-    }
-  }
   changeQuestion = () =>{
     this.setState({
       questionNumber: this.state.questionNumber + 1
     })
   }
-
-  // MC ON PRESS FUNCTION
-  // HIGHLIGHT THE BUTTON, CHANGE STATE OF CHOICE
-
-  // SUBMIT ON PRESS FUNCTION
-  //CHECK IF ANSWER IS RIGHT THEN CHANGE QUESTION
-
   render(){
-  
+  console.log(this.props)
     return(
       <View>
         <Text>Loading</Text>
@@ -46,4 +28,10 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Trivia
+mapStateToProps = state =>{ //subscribe to changes in the store 
+  return {
+    categoryData: state.categoryData
+  }
+}
+
+export default connect(mapStateToProps)(Trivia)

@@ -7,7 +7,9 @@ const initialState = {
 export const idReducer = (state = initialState, action) =>{
   switch(action.type){
   case FETCH_CATEGORY:
-  return action.payload
+  return Object.assign({}, state, {
+    categoryId: action.payload
+  })
   default:
   return state
   }

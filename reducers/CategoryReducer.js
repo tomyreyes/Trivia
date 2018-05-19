@@ -1,14 +1,14 @@
-import { CHANGE_CATEGORY } from "../actions";
+import { FETCH_CATEGORY_SUCCESS } from "../actions";
 
 const initialState = {
-  category: []
+  categoryData: []
 }
 
 export const categoryReducer = (state = initialState, action) => {
   //switch statement in here 
   switch(action.type){
-    case CHANGE_CATEGORY:
-    return action.payload
+    case FETCH_CATEGORY_SUCCESS:
+    return Object.assign({}, state, {categoryData: action.payload}) 
     default:
     return state
   }

@@ -1,5 +1,5 @@
 import { call, put, takeLatest,  } from 'redux-saga/effects'
-import { FETCH_CATEGORY_REQUEST, fetchCategoryRequest } from '../actions';
+import { fetchCategoryRequest, fetchCategorySuccess } from '../actions';
 import axios from 'axios'
 
 function* categorySaga() { //this is a watcher saga, everytime FETCH_CATEGORY_REQUEST is dispatched, we will callFetchCategory 
@@ -21,10 +21,9 @@ const fetchCategory = (action) => { //the id will be received when this function
 }
 
 function* callFetchCategory(action){ //this is a generator function that once called will first call the fetchCategoryFunction
-  
   try {
     const categoryData = yield call(fetchCategory, action)
-    //yield put FETCH_CATEGORY_SUCCESS, categoryData
+    yield put (fetchCategorySuccess(categoryData))
   }catch(error){
     console.log(error)    
   }

@@ -1,6 +1,6 @@
 export const FETCH_CATEGORY_REQUEST = 'FETCH_CATEGORY_REQUEST'
-export const CHANGE_CATEGORY = 'CHANGE_CATEGORY'
 export const FETCH_CATEGORY_SUCCESS = 'FETCH_CATEGORY_SUCCESS'
+export const FETCH_CATEGORY_ERROR = 'FETCH_CATEGORY_ERROR'
 
 export const fetchCategoryRequest = (id) =>{
   return {
@@ -16,11 +16,9 @@ export const fetchCategorySuccess = (categoryData) => {
   }
 }
 
-
-
-export const changeCategory = (category) => {
+export const fetchCategoryError = (error) =>{ // ADD THIS IS OPTIONALLY LATER
   return {
-    type: CHANGE_CATEGORY,
-    payload: category
+    type: FETCH_CATEGORY_ERROR,
+    payload: error
   }
 }
