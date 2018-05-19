@@ -2,18 +2,21 @@ import React from 'react';
 import { StyleSheet, Text, View, Button, Alert } from 'react-native';
 import { connect } from 'react-redux'
 import { fetchCategoryRequest } from '../actions'
+import Trivia from './Trivia';
 
 class HomeScreen extends React.Component {
   static navigationOptions = () =>{
     title: 'Home'
   }
-  _bookPress(){
+  _bookPress = () => {
     const bookId = 10
     // this.props.fetchCategoryRequest(bookId)
     this.props.navigation.navigate('Trivia')
+    
   }
 
   render() {
+    console.log(this.props)
     
     return (
       <View style={styles.container}>

@@ -6,7 +6,12 @@ import Trivia from './screens/Trivia'
 import { Provider } from 'react-redux'
 import store from './store'
 
-export default class App extends React.Component {
+const MainNavigator = new createStackNavigator({
+  HomeScreen: { screen: HomeScreen },
+  Trivia: { screen: Trivia }
+})
+
+class App extends React.Component {
 
   render() {
     return( 
@@ -16,11 +21,6 @@ export default class App extends React.Component {
     )
   }
 }
-
-const MainNavigator = new  createStackNavigator({
-  HomeScreen: {screen: HomeScreen},
-  Trivia: {screen: Trivia}
-})
 
 
 const styles = StyleSheet.create({
@@ -34,3 +34,5 @@ const styles = StyleSheet.create({
     fontSize: 20
   }
 });
+
+export default App
