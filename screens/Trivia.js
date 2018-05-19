@@ -1,7 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, Alert } from 'react-native';
-import axios from 'axios'
-
 class Trivia extends React.Component {
   componentWillMount(){
     
