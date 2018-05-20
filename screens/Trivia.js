@@ -6,13 +6,14 @@ import MultipleChoice from '../components/MultipleChoice'
 
 class Trivia extends Component {
 
-  renderQuestions(){
+  renderQuestion(){
+    const { index } = this.props.questionIndex
     const { categoryData } = this.props.categoryData
-    return this.props.categoryData.categoryData.map((question, index)=>{
-      return (
-        <Text key={index} style={styles.question}>{question.question}</Text>
-      )
-    })
+    let oneQuestion = categoryData.filter((question, i) => i === index) 
+
+    return (
+      <Text style={styles.question}>{oneQuestion[0].question}</Text>
+    )
   }
 
   shouldComponentUpdate(nextProps){
@@ -20,13 +21,17 @@ class Trivia extends Component {
   }
 
   render(){
+    console.log(this.props)
     const { categoryData } = this.props.categoryData
   
       return(
         <View>
-          {(categoryData.length !== 0) ? 
-            this.renderQuestions() :
+          {(categoryData.length > 0) ? 
+            this.renderQuestion():
             <Text>Loading</Text>}
+          {categoryData.length > 0 &&
+            <MultipleChoice/>
+          }
         </View>
       )
     }
@@ -46,7 +51,8 @@ const styles = StyleSheet.create({
 
 mapStateToProps = state => { //subscribe to changes in the store 
   return {
-    categoryData: state.categoryReducer
+    categoryData: state.categoryReducer,
+    questionIndex: state.questionReducer
   }
 }
 
