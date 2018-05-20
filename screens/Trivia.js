@@ -2,11 +2,12 @@ import React from 'react';
 import { StyleSheet, Text, View, Button, Alert } from 'react-native';
 import { connect } from 'react-redux'
 class Trivia extends React.Component {
-  changeQuestion = () =>{
-    this.setState({
-      questionNumber: this.state.questionNumber + 1
-    })
-  }
+  
+  // changeQuestion = () =>{
+  //   this.setState({
+  //     questionNumber: this.state.questionNumber + 1
+  //   })
+  // }
   render(){
   console.log(this.props)
     return(
