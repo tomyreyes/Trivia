@@ -1,10 +1,11 @@
-import React from 'react';
-import { StyleSheet, Text, View, Button, Alert } from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import { connect } from 'react-redux'
 import { fetchCategoryRequest } from '../actions'
 import Trivia from './Trivia';
 import { bindActionCreators } from 'redux'
-class HomeScreen extends React.Component {
+
+class HomeScreen extends Component {
   static navigationOptions = () =>{
     title: 'Home'
   }

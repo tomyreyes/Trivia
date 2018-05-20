@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, View} from 'react-native';
 import { createStackNavigator } from 'react-navigation'
 import HomeScreen from './screens/HomeScreen'
@@ -11,7 +11,7 @@ const MainNavigator = new createStackNavigator({
   Trivia: { screen: Trivia }
 })
 
-class App extends React.Component {
+class App extends Component {
 
   render() {
     return( 
