@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Button, Alert } from 'react-native';
 import { connect } from 'react-redux'
 class Trivia extends React.Component {
-  
+
   // changeQuestion = () =>{
   //   this.setState({
   //     questionNumber: this.state.questionNumber + 1
@@ -29,9 +29,9 @@ const styles = StyleSheet.create({
   }
 });
 
-mapStateToProps = state =>{ //subscribe to changes in the store 
+mapStateToProps = state => { //subscribe to changes in the store 
   return {
-    categoryData: state.categoryData
+    categoryData: state.categoryReducer
   }
 }
 
