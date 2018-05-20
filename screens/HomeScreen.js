@@ -9,11 +9,9 @@ class HomeScreen extends React.Component {
     title: 'Home'
   }
   _bookPress = () => {
-    console.log('click')
     const bookId = 10
     this.props.fetchCategoryRequest(bookId)
     this.props.navigation.navigate('Trivia')
-    
   }
 
   render() {
