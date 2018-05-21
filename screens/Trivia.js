@@ -1,5 +1,5 @@
 import React, { Component }from 'react';
-import { StyleSheet, Text, View, Button, Alert } from 'react-native';
+import { ActivityIndicator, Button, StyleSheet, Text, View} from 'react-native';
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import MultipleChoice from '../components/MultipleChoice'
@@ -28,7 +28,7 @@ class Trivia extends Component {
         <View>
           {(categoryData.length > 0) ? 
             this.renderQuestion():
-            <Text>Loading</Text>}
+            <ActivityIndicator size="large" color="#0000ff" />}
           {categoryData.length > 0 &&
             <MultipleChoice/>
           }

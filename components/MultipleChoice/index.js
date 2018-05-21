@@ -16,10 +16,12 @@ class MultipleChoice extends Component {
 
     multipleChoice.splice(randomPlacement, 0, correct) //adding correct answer at a random index
     return multipleChoice.map((choice, i) => {
-      return ( <Text key={i}>{choice}</Text> 
+      return (
+         <Text key={i}>{choice}</Text> 
     )
     })    
   }
+
   render(){
     return(
       this.renderMultipleChoice()
