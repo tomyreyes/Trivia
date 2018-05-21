@@ -5,6 +5,19 @@ import { bindActionCreators } from 'redux'
 import { changeQuestion } from '../../actions'
 
 class MultipleChoice extends Component {
+  constructor(){
+    super()
+    this.state = {
+      active: false
+    }
+  }
+
+  _pickAnswer = () => {
+    this.setState({
+      active: true
+    })
+  }
+
   renderMultipleChoice(){
     const { index } = this.props.questionIndex
     const { categoryData } = this.props.categoryData
@@ -15,14 +28,25 @@ class MultipleChoice extends Component {
     const randomPlacement = Math.floor(Math.random() * multipleChoice.length)
 
     multipleChoice.splice(randomPlacement, 0, correct) //adding correct answer at a random index
-    return multipleChoice.map((choice, i) => {
-      return (
-         <Text key={i}>{choice}</Text> 
+
+    return (
+      <View>
+        <Button title={multipleChoice[0]} onPress = {this._pickAnswer} color={(this.state.active === true) ? 'black' : 'red'}></Button>
+        <Button title={multipleChoice[1]} color={'grey'}></Button>
+        <Button title={multipleChoice[2]} color={'green'}></Button>
+        <Button title={multipleChoice[3]}></Button>
+      </View>
     )
-    })    
+
+    // return multipleChoice.map((choice, i) => {
+    //   return (
+    //      <Text key={i}>{choice}</Text> 
+    // )
+    // })    
   }
 
   render(){
+    console.log('herp')
     return(
       this.renderMultipleChoice()
       
