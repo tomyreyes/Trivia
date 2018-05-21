@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   }
 });
 
-mapStateToProps = state => { //subscribe to changes in the store 
+mapStateToProps = state => {
   return {
     categoryData: state.categoryReducer,
     questionIndex: state.questionReducer
