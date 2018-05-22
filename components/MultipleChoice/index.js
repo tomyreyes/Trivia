@@ -8,7 +8,9 @@ class MultipleChoice extends Component {
   constructor(){
     super()
     this.state = {
-      active: false
+      randomPlacement: 0,
+      active: false,
+      multipleChoice: []
     }
   }
 
@@ -18,38 +20,42 @@ class MultipleChoice extends Component {
     })
   }
 
-  renderMultipleChoice(){
-    const { index } = this.props.questionIndex
-    const { categoryData } = this.props.categoryData
-    const answerSet = categoryData.filter(((answers, i) => i === index)) //this will give me access to [index] answer set
+  componentWillMount() { //add the logic in here 
      
-    const multipleChoice = answerSet[0].incorrect_answers // I need to add the correct answer to this 
-    const correct = answerSet[0].correct_answer
-    const randomPlacement = Math.floor(Math.random() * multipleChoice.length)
+    this.setState({
+      randomPlacement: Math.floor(Math.random() * 2),
+    },()=> {
+      const { index } = this.props.questionIndex
+      const { categoryData } = this.props.categoryData
+      const answerSet = categoryData.filter(((answers, i) => i === index)) //this will give me access to [index] answer set
+      const incorrect = answerSet[0].incorrect_answers // I need to add the correct answer to this 
+      const correct = answerSet[0].correct_answer
+      incorrect.splice(this.state.randomPlacement, 0, correct)
+      this.setState({multipleChoice: incorrect}) //this will fill the button group with correct answers each update.
+    }) 
+  }
 
-    multipleChoice.splice(randomPlacement, 0, correct) //adding correct answer at a random index
-
+  renderMultipleChoice(){
+    const { multipleChoice } = this.state
     return (
       <View>
-        <Button title={multipleChoice[0]} onPress = {this._pickAnswer} color={(this.state.active === true) ? 'black' : 'red'}></Button>
+        <Button title={multipleChoice[0]} onPress={this._pickAnswer} color={(this.state.active === true) ? 'black' : 'red'}></Button>
         <Button title={multipleChoice[1]} color={'grey'}></Button>
         <Button title={multipleChoice[2]} color={'green'}></Button>
         <Button title={multipleChoice[3]}></Button>
       </View>
     )
-
-    // return multipleChoice.map((choice, i) => {
-    //   return (
-    //      <Text key={i}>{choice}</Text> 
-    // )
-    // })    
   }
-
+  shouldComponentUpdate(nextState){
+    return this.state.multipleChoice !== nextState.multipleChoice
+  }
+  
   render(){
-    console.log('herp')
     return(
-      this.renderMultipleChoice()
-      
+    <View>{this.state.multipleChoice.length > 0 &&
+     this.renderMultipleChoice()
+    }
+     </View>
     )
   }
 }

@@ -20,8 +20,9 @@ const fetchCategory = (action) => { //the id will be received when this function
 
 function* callFetchCategory(action){ //this is a generator function that once called will first call the fetchCategoryFunction
     const categoryData = yield call(fetchCategory, action)
-    yield put ({type: FETCH_CATEGORY_SUCCESS, payload: categoryData})
+    yield put ({type: FETCH_CATEGORY_SUCCESS, payload: categoryData}) //this is where array is 
 }
+
 
 
 export default categorySaga
