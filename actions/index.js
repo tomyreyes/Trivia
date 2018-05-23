@@ -4,6 +4,7 @@ export const FETCH_CATEGORY_REQUEST = 'FETCH_CATEGORY_REQUEST'
 export const FETCH_CATEGORY_SUCCESS = 'FETCH_CATEGORY_SUCCESS'
 export const FETCH_CATEGORY_ERROR = 'FETCH_CATEGORY_ERROR'
 export const CHANGE_QUESTION = 'CHANGE_QUESTION'
+export const CHANGE_SCORE = 'CHANGE_SCORE'
 
 export const fetchCategoryRequest = (id) =>{
   return {
@@ -29,6 +30,13 @@ export const fetchCategoryError = (error) =>{ // ADD THIS IS OPTIONALLY LATER
 export const changeQuestion = () => {
   return {
     type: CHANGE_QUESTION,
+    payload: 1
+  }
+}
+
+export const changeScore = () => {
+  return {
+    type: CHANGE_SCORE,
     payload: 1
   }
 }

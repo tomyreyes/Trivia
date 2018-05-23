@@ -3,6 +3,7 @@ import { ActivityIndicator, Button, StyleSheet, Text, View} from 'react-native';
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import MultipleChoice from '../components/MultipleChoice'
+import ScoreBoard from '../components/ScoreBoard'
 
 class Trivia extends Component {
 
@@ -30,6 +31,7 @@ class Trivia extends Component {
   
       return(
         <View>
+          <ScoreBoard/>
           {(categoryData.length > 0) ? 
             this.renderQuestion():
             <ActivityIndicator size="large" color="#0000ff" />}
