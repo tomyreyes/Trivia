@@ -75,8 +75,34 @@ class MultipleChoice extends Component {
     )
   }
 
-  shouldComponentUpdate(nextState) {
-    return this.state.multipleChoice !== nextState.multipleChoice
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.state.multipleChoice !== nextState.multipleChoice || this.props.questionIndex !== nextProps.questionIndex
+  }
+
+  componentDidUpdate(prevProps){ //this will change the multipleChoice questions that are rendered 
+    const { index } = this.props.questionIndex
+    const { categoryData } = this.props.categoryData
+    
+    if(this.props.questionIndex !== prevProps.questionIndex) {
+      this.setState(
+        {
+          randomPlacement: Math.floor(Math.random() * 2)
+        },
+        () => {
+          const answerSet = categoryData.filter((answers, i) => i === index)
+          const incorrect = answerSet[0].incorrect_answers
+          const correct = answerSet[0].correct_answer
+          incorrect.splice(this.state.randomPlacement, 0, correct)
+          this.setState(
+            {
+              multipleChoice: incorrect,
+              answer: correct
+            }
+          )
+        }
+      )
+
+    }
   }
 
   //onPress functions
@@ -148,11 +174,11 @@ class MultipleChoice extends Component {
     } else {
       console.log('better luck next time')
     }
-
+    this.props.changeQuestion() 
   }
 
   render() {
-    console.log(this.state.answer)
+    // console.log(this.props.questionIndex)
     return (
       <View>
         {this.state.multipleChoice.length > 0 && this.renderMultipleChoice()}

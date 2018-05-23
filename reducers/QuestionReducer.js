@@ -7,7 +7,7 @@ const initialState = {
 export const questionReducer = (state  = initialState, action) => {
   switch(action.type) {
     case CHANGE_QUESTION:
-    return Object.assign({}, state, {index: index + action.payload})
+    return Object.assign({}, state, {index: state.index + action.payload})
     default:
     return state
   }

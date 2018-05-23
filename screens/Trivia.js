@@ -17,11 +17,14 @@ class Trivia extends Component {
   }
 
   shouldComponentUpdate(nextProps){
-    return this.props.categoryData !== nextProps.categoryData
+    return this.props.categoryData !== nextProps.categoryData || this.props.questionIndex !== nextProps.questionIndex
+  }
+  componentDidUpdate() {
+    console.log('updated')
   }
 
   render(){
-    console.log(this.props)
+    console.log(this.props.questionIndex)
     const { categoryData } = this.props.categoryData
   
       return(
