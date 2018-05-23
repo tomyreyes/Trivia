@@ -10,9 +10,10 @@ class Trivia extends Component {
     const { index } = this.props.questionIndex
     const { categoryData } = this.props.categoryData
     let oneQuestion = categoryData.filter((question, i) => i === index) 
+    let question = oneQuestion[0].question.replace(/&quot;/g, '"').replace(/&#039;/g, '')
 
     return (
-      <Text style={styles.question}>{oneQuestion[0].question}</Text>
+      <Text style={styles.question}>{question}</Text>
     )
   }
 

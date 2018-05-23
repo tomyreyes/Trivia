@@ -69,14 +69,15 @@ class MultipleChoice extends Component {
         <Button
           title={'SUBMIT'}
           onPress={this._checkAnswer}
-          color ={'yellow'} //would be cool to put a activity indicator here like in react-native-elements
+          color ={'turquoise'} //would be cool to put a activity indicator here like in react-native-elements
         />
       </View>
     )
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return this.state.multipleChoice !== nextState.multipleChoice || this.props.questionIndex !== nextProps.questionIndex
+    const { multipleChoice, userAnswer} = this.state
+    return multipleChoice !== nextState.multipleChoice || this.props.questionIndex !== nextProps.questionIndex || userAnswer !== nextState.userAnswer
   }
 
   componentDidUpdate(prevProps){ //this will change the multipleChoice questions that are rendered 
@@ -158,7 +159,7 @@ class MultipleChoice extends Component {
         activeA: false,
         activeB: false,
         activeC: false,
-        activeD: false,
+        activeD: false
       })
     }
     this.setState({
@@ -174,6 +175,13 @@ class MultipleChoice extends Component {
     } else {
       console.log('better luck next time')
     }
+
+    this.setState({ //when changing to next question remove toggled Button
+      activeA: false,
+      activeB: false,
+      activeC: false,
+      activeD: false
+    })
     this.props.changeQuestion() 
   }
 
