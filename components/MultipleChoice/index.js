@@ -13,69 +13,13 @@ class MultipleChoice extends Component {
       activeB: false,
       activeC: false,
       activeD: false,
-      multipleChoice: []
+      multipleChoice: [],
+      userAnswer: false,
+      answer: false
     }
   }
-
-  _pickAnswerA = () => {
-    const { activeA, activeB, activeC, activeD } = this.state
-    if(activeA === true || activeB === true || activeC === true || activeD === true) {
-      this.setState({
-        activeA: false,
-        activeB: false, 
-        activeC: false, 
-        activeD: false,
-       })
-    }
-    this.setState({
-      activeA: true
-    })
-  }
-  _pickAnswerB = () => {
-    const { activeA, activeB, activeC, activeD } = this.state
-    if (activeA === true || activeB === true || activeC === true || activeD === true) {
-      this.setState({
-        activeA: false,
-        activeB: false,
-        activeC: false,
-        activeD: false,
-      })
-    }
-    this.setState({
-      activeB: true
-    })
-  }
-  _pickAnswerC = () => {
-    const { activeA, activeB, activeC, activeD } = this.state
-    if (activeA === true || activeB === true || activeC === true || activeD === true) {
-      this.setState({
-        activeA: false,
-        activeB: false,
-        activeC: false,
-        activeD: false,
-      })
-    }
-    this.setState({
-      activeC: true
-    })
-  }
-  _pickAnswerD = () => {
-    const { activeA, activeB, activeC, activeD } = this.state
-    if (activeA === true || activeB === true || activeC === true || activeD === true) {
-      this.setState({
-        activeA: false,
-        activeB: false,
-        activeC: false,
-        activeD: false,
-      })
-    }
-    this.setState({
-      activeD: true
-    })
-  }
-
+  
   componentWillMount() {
-    //add the logic in here
     const { index } = this.props.questionIndex
     const { categoryData } = this.props.categoryData
 
@@ -88,13 +32,18 @@ class MultipleChoice extends Component {
         const incorrect = answerSet[0].incorrect_answers
         const correct = answerSet[0].correct_answer
         incorrect.splice(this.state.randomPlacement, 0, correct)
-        this.setState({ multipleChoice: incorrect })
+        this.setState(
+          { 
+          multipleChoice: incorrect,
+          answer: correct }
+        )
       }
     )
   }
 
   renderMultipleChoice() {
     const { multipleChoice } = this.state
+    console.log(this.state.answer)
     return (
       <View>
         <Button
@@ -117,14 +66,93 @@ class MultipleChoice extends Component {
           onPress={this._pickAnswerD}
           color={this.state.activeD === true ? 'black' : 'blue'}
         />
+        <Button
+          title={'SUBMIT'}
+          onPress={this._checkAnswer}
+          color ={'yellow'} //would be cool to put a activity indicator here like in react-native-elements
+        />
       </View>
     )
   }
+
   shouldComponentUpdate(nextState) {
     return this.state.multipleChoice !== nextState.multipleChoice
   }
 
+  //onPress functions
+  _pickAnswerA = () => {
+    const { activeA, activeB, activeC, activeD, multipleChoice } = this.state
+    if (activeA === true || activeB === true || activeC === true || activeD === true) {
+      this.setState({
+        activeA: false,
+        activeB: false,
+        activeC: false,
+        activeD: false,
+      })
+    }
+    this.setState({
+      activeA: true,
+      userAnswer: multipleChoice[0]
+    })
+  }
+  _pickAnswerB = () => {
+    const { activeA, activeB, activeC, activeD, multipleChoice } = this.state
+    if (activeA === true || activeB === true || activeC === true || activeD === true) {
+      this.setState({
+        activeA: false,
+        activeB: false,
+        activeC: false,
+        activeD: false,
+      })
+    }
+    this.setState({
+      activeB: true,
+      userAnswer: multipleChoice[1]
+    })
+  }
+  _pickAnswerC = () => {
+    const { activeA, activeB, activeC, activeD, multipleChoice } = this.state
+    if (activeA === true || activeB === true || activeC === true || activeD === true) {
+      this.setState({
+        activeA: false,
+        activeB: false,
+        activeC: false,
+        activeD: false,
+      })
+    }
+    this.setState({
+      activeC: true,
+      userAnswer: multipleChoice[2]
+    })
+  }
+  _pickAnswerD = () => {
+    const { activeA, activeB, activeC, activeD, multipleChoice } = this.state
+    if (activeA === true || activeB === true || activeC === true || activeD === true) {
+      this.setState({
+        activeA: false,
+        activeB: false,
+        activeC: false,
+        activeD: false,
+      })
+    }
+    this.setState({
+      activeD: true,
+      userAnswer: multipleChoice[3]
+    })
+  }
+  _checkAnswer = () => {
+    const { userAnswer, answer } = this.state
+
+    if( userAnswer == answer ){
+      console.log('nice job')
+    } else {
+      console.log('better luck next time')
+    }
+
+  }
+
   render() {
+    console.log(this.state.answer)
     return (
       <View>
         {this.state.multipleChoice.length > 0 && this.renderMultipleChoice()}
