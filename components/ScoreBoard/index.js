@@ -3,6 +3,10 @@ import { StyleSheet, Text, View } from 'react-native'
 import { connect } from 'react-redux'
 
 class ScoreBoard extends Component {
+  shouldComponentUpdate(nextProps){
+    return this.props.score !== nextProps.score
+  }
+
   render(){
     const { score } = this.props.score
     
@@ -11,7 +15,6 @@ class ScoreBoard extends Component {
         <Text>{score}</Text>
         </View>
     )
-
   }
 }
 

@@ -6,6 +6,7 @@ import MultipleChoice from '../components/MultipleChoice'
 import ScoreBoard from '../components/ScoreBoard'
 
 class Trivia extends Component {
+  
 
   renderQuestion(){
     const { index } = this.props.questionIndex
@@ -21,10 +22,7 @@ class Trivia extends Component {
   shouldComponentUpdate(nextProps){
     return this.props.categoryData !== nextProps.categoryData || this.props.questionIndex !== nextProps.questionIndex
   }
-  componentDidUpdate() {
-    console.log('updated')
-  }
-
+ 
   render(){
     console.log(this.props.questionIndex)
     const { categoryData } = this.props.categoryData

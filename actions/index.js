@@ -5,6 +5,9 @@ export const FETCH_CATEGORY_SUCCESS = 'FETCH_CATEGORY_SUCCESS'
 export const FETCH_CATEGORY_ERROR = 'FETCH_CATEGORY_ERROR'
 export const CHANGE_QUESTION = 'CHANGE_QUESTION'
 export const CHANGE_SCORE = 'CHANGE_SCORE'
+export const RESET_SCORE = 'RESET_SCORE'
+export const RESET_INDEX = 'RESET_INDEX'
+export const RESET_CATEGORY_DATA = 'RESET_CATEGORY_DATA'
 
 export const fetchCategoryRequest = (id) =>{
   return {
@@ -38,5 +41,26 @@ export const changeScore = () => {
   return {
     type: CHANGE_SCORE,
     payload: 1
+  }
+}
+
+export const resetScore = () => {
+  return {
+    type: RESET_SCORE,
+    payload: 0
+  }
+}
+
+export const resetIndex = () => {
+  return {
+    type: RESET_INDEX,
+    payload: 0
+  }
+}
+
+export const resetCategoryData = () => {
+  return {
+    type: RESET_CATEGORY_DATA,
+    payload: []
   }
 }

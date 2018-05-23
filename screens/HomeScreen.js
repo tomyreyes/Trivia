@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { connect } from 'react-redux'
-import { fetchCategoryRequest } from '../actions'
+import { fetchCategoryRequest, resetIndex, resetScore, resetCategoryData } from '../actions'
 import Trivia from './Trivia';
 import { bindActionCreators } from 'redux'
 
@@ -11,6 +11,9 @@ class HomeScreen extends Component {
   }
   _bookPress = () => {
     const bookId = 10
+    this.props.resetCategoryData()
+    this.props.resetScore()
+    this.props.resetIndex()
     this.props.fetchCategoryRequest(bookId)
     this.props.navigation.navigate('Trivia')
   }
@@ -39,7 +42,10 @@ const styles = StyleSheet.create({
 
 mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    fetchCategoryRequest: fetchCategoryRequest
+    fetchCategoryRequest: fetchCategoryRequest,
+    resetScore: resetScore,
+    resetIndex, resetIndex,
+    resetCategoryData: resetCategoryData
   }, dispatch)
 }
 

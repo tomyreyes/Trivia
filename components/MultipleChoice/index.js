@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Button, StyleSheet, Text, View} from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { changeQuestion } from '../../actions'
+import { changeQuestion, changeScore } from '../../actions'
 
 class MultipleChoice extends Component {
   constructor() {
@@ -171,7 +171,7 @@ class MultipleChoice extends Component {
     const { userAnswer, answer } = this.state
 
     if( userAnswer == answer ){
-      console.log('nice job')
+      this.props.changeScore()
     } else {
       console.log('better luck next time')
     }
@@ -204,7 +204,8 @@ mapStateToProps = state => {
 
 mapDispatchToProps = dispatch => { 
   return bindActionCreators({
-    changeQuestion: changeQuestion
+    changeQuestion: changeQuestion,
+    changeScore: changeScore
   },dispatch)
 }
 
