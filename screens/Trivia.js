@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import MultipleChoice from '../components/MultipleChoice'
 import ScoreBoard from '../components/ScoreBoard'
+import FinalScore from '../components/FinalScore'
 
 class Trivia extends Component {
   
@@ -26,16 +27,22 @@ class Trivia extends Component {
   render(){
     console.log(this.props.questionIndex)
     const { categoryData } = this.props.categoryData
+    const { index } = this.props.questionIndex
   
       return(
         <View>
           <ScoreBoard/>
-          {(categoryData.length > 0) ? 
-            this.renderQuestion():
-            <ActivityIndicator size="large" color="#0000ff" />}
-          {categoryData.length > 0 &&
-            <MultipleChoice/>
+          {(index < 9) ?
+             (categoryData.length > 0) ? 
+              this.renderQuestion() : 
+              <ActivityIndicator size="large" color="#0000ff" />
+           : <FinalScore navigate={this.props.navigation}/>
           }
+
+            { ((categoryData.length > 0) &&(index < 9)) &&
+            <MultipleChoice/>
+        }
+        
         </View>
       )
     }

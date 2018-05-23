@@ -125,6 +125,7 @@ class MultipleChoice extends Component {
       userAnswer: multipleChoice[0]
     })
   }
+
   _pickAnswerB = () => {
     const { activeA, activeB, activeC, activeD, multipleChoice } = this.state
     if (activeA === true || activeB === true || activeC === true || activeD === true) {
@@ -140,6 +141,7 @@ class MultipleChoice extends Component {
       userAnswer: multipleChoice[1]
     })
   }
+
   _pickAnswerC = () => {
     const { activeA, activeB, activeC, activeD, multipleChoice } = this.state
     if (activeA === true || activeB === true || activeC === true || activeD === true) {
@@ -155,6 +157,7 @@ class MultipleChoice extends Component {
       userAnswer: multipleChoice[2]
     })
   }
+
   _pickAnswerD = () => {
     const { activeA, activeB, activeC, activeD, multipleChoice } = this.state
     if (activeA === true || activeB === true || activeC === true || activeD === true) {
@@ -172,10 +175,11 @@ class MultipleChoice extends Component {
   }
   _checkAnswer = () => {
     const { userAnswer, answer } = this.state
+    const { index } = this.props.questionIndex
 
     if( userAnswer == answer ){
       this.props.changeScore()
-    } else {
+    } else { //I can insert something here to popup if its wrong? 
       console.log('better luck next time')
     }
 
@@ -185,11 +189,13 @@ class MultipleChoice extends Component {
       activeC: false,
       activeD: false
     })
-    this.props.changeQuestion() 
+    if(index > 9) {
+      console.log('end of question set')
+      //render homescreen 
+    } else this.props.changeQuestion() 
   }
 
   render() {
-    // console.log(this.props.questionIndex)
     return (
       <View>
         {this.state.multipleChoice.length > 0 && this.renderMultipleChoice()}
