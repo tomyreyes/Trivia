@@ -4,9 +4,11 @@ import { connect } from 'react-redux'
 import HomeScreen from '../../screens/HomeScreen'
 
 class FinalScore extends Component {
-  _mainMenu(){
+  _mainMenu = () => {
     this.props.navigate.navigate('HomeScreen')
   }
+
+  
 
   render() {
     console.log('helloooo')
