@@ -3,7 +3,7 @@ import { fetchCategoryRequest, fetchCategorySuccess, FETCH_CATEGORY_SUCCESS, FET
 import axios from 'axios'
 
 function* categorySaga() { //this is a watcher saga, everytime FETCH_CATEGORY_REQUEST is dispatched, we will callFetchCategory 
-  yield takeLatest(FETCH_CATEGORY_REQUEST, callFetchCategory) //optionall i can use (FETCH_CATEGORY_REQUEST, fetchCategoryRequest)
+  yield takeLatest(FETCH_CATEGORY_REQUEST, callFetchCategory)
 }
 
 //optionally place in an api directory 
@@ -22,7 +22,6 @@ function* callFetchCategory(action){ //this is a generator function that once ca
     const categoryData = yield call(fetchCategory, action)
     yield put ({type: FETCH_CATEGORY_SUCCESS, payload: categoryData}) //this is where array is 
 }
-
 
 
 export default categorySaga

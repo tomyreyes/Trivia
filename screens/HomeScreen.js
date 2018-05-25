@@ -10,6 +10,7 @@ class HomeScreen extends Component {
   static navigationOptions = () =>{
     title: 'Home'
   }
+  
   _bookPress = () => {
     const bookId = 10
     this.props.resetCategoryData()
