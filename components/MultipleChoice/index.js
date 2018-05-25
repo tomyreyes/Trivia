@@ -48,35 +48,13 @@ class MultipleChoice extends Component {
       return choice.replace(/&quot;/g, '"').replace(/&#039;/g, '')
     })
     console.log(this.state.answer)
-    return (
-      <View>
-        <Button
-          title={multipleChoice[0]}
-          onPress={this._pickAnswerA}
-          color={this.state.activeA === true ? 'black' : 'red'}
-        />
-        <Button
-          title={multipleChoice[1]}
-          onPress={this._pickAnswerB}
-          color={this.state.activeB === true ? 'black' : 'grey'}
-        />
-        <Button
-          title={multipleChoice[2]}
-          onPress={this._pickAnswerC}
-          color={this.state.activeC === true ? 'black' : 'green'}
-        />
-        <Button
-          title={multipleChoice[3]}
-          onPress={this._pickAnswerD}
-          color={this.state.activeD === true ? 'black' : 'blue'}
-        />
-        <Button
-          title={'SUBMIT'}
-          onPress={this._checkAnswer}
-          color ={'turquoise'} //would be cool to put a activity indicator here like in react-native-elements
-        />
+    return <View>
+        <Button title={multipleChoice[0]} onPress={this._pickAnswerA} backgroundColor={this.state.activeA === true ? '#0e6c68' : '#107974'} />
+        <Button title={multipleChoice[1]} onPress={this._pickAnswerB} backgroundColor={this.state.activeB === true ? '#b61b00' : '#cb1f00'} />
+        <Button title={multipleChoice[2]} onPress={this._pickAnswerC} backgroundColor={this.state.activeC === true ? '#6680b7' : '#728fcc'} />
+        <Button title={multipleChoice[3]} onPress={this._pickAnswerD} backgroundColor={this.state.activeD === true ? '#50934b' : '#59a454'} />
+        <Button title={'SUBMIT'} onPress={this._checkAnswer} backgroundColor={'black'} />
       </View>
-    )
   }
 
   shouldComponentUpdate(nextProps, nextState) {
