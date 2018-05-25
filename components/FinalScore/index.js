@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Button, StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
+import { Button } from 'react-native-elements'
 import { connect } from 'react-redux'
 import HomeScreen from '../../screens/HomeScreen'
 
@@ -11,8 +12,6 @@ class FinalScore extends Component {
   
 
   render() {
-    console.log('helloooo')
-    console.log(this.props)
     const { score } = this.props.score
     return (
       <View>

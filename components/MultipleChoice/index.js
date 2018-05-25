@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Button, StyleSheet, Text, View} from 'react-native'
+import { StyleSheet, Text, View} from 'react-native'
+import { Button } from 'react-native-elements'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { changeQuestion, changeScore } from '../../actions'

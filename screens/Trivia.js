@@ -1,5 +1,5 @@
 import React, { Component }from 'react';
-import { ActivityIndicator, Button, StyleSheet, Text, View} from 'react-native';
+import { ActivityIndicator, StyleSheet, Text, View} from 'react-native';
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import MultipleChoice from '../components/MultipleChoice'

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import { Button } from 'react-native-elements'
 import { connect } from 'react-redux'
 import { fetchCategoryRequest, resetIndex, resetScore, resetCategoryData } from '../actions'
 import Trivia from './Trivia';
