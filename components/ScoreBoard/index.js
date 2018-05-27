@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { connect } from 'react-redux'
+import { Badge } from 'react-native-elements'
 
 class ScoreBoard extends Component {
   shouldComponentUpdate(nextProps){
@@ -12,11 +13,18 @@ class ScoreBoard extends Component {
     
     return(
       <View>
-        <Text>{score}</Text>
+        <Badge value={`Score: ${ score }`}containerStyle={styles.badge}/>
         </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  badge: {
+    margin: 3,
+    alignSelf: 'flex-end'
+  }
+})
 
 mapStateToProps = state => {
   return {
