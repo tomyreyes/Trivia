@@ -38,7 +38,6 @@ class Trivia extends Component {
               <ActivityIndicator size="large" color="#0000ff" />
            : <FinalScore navigate={this.props.navigation}/>
           }
-
             { ((categoryData.length > 0) &&(index < 9)) &&
             <MultipleChoice/>
         }
