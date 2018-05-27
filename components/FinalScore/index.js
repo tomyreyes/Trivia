@@ -7,24 +7,24 @@ import { fetchCategoryRequest, resetIndex, resetScore, resetCategoryData } from 
 import { bindActionCreators } from 'redux'
 
 class FinalScore extends Component {
-  
+
   _mainMenu = () => {
     this.props.navigate.navigate('HomeScreen')
   }
 
   _bookPress = () => {
-    const bookId = 10
+    const { categoryId } = this.props.id
     this.props.resetCategoryData()
     this.props.resetScore()
     this.props.resetIndex()
-    this.props.fetchCategoryRequest(bookId)
+    this.props.fetchCategoryRequest(categoryId)
   }
 
   
 
   render() {
-    const { id } = this.props.id
     const { score } = this.props.score
+    console.log(this.props)
     return <View>
         <Text>Final Score: {score}</Text>
         <Button title="Restart Game" onPress={this._bookPress}/>

@@ -25,7 +25,6 @@ class Trivia extends Component {
   }
  
   render(){
-    console.log(this.props.questionIndex)
     const { categoryData } = this.props.categoryData
     const { index } = this.props.questionIndex
   
@@ -51,6 +50,8 @@ const styles = StyleSheet.create({
   container:{
     alignItems: 'center',
     justifyContent: 'center',
+    paddingVertical: 13,
+    paddingHorizontal: 20
   },
   question: {
     fontSize: 20

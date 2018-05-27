@@ -20,11 +20,21 @@ class HomeScreen extends Component {
     this.props.navigation.navigate('Trivia')
   }
 
+  _videoGamePress = () => {
+    const videoGameId = 15
+    this.props.resetCategoryData()
+    this.props.resetScore()
+    this.props.resetIndex()
+    this.props.fetchCategoryRequest(videoGameId)
+    this.props.navigation.navigate('Trivia')
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Select a Game</Text>
         <Button title="Books" onPress={this._bookPress}/>
+        <Button title="Video Games" onPress={this._videoGamePress} />
       </View>
     )
   }
