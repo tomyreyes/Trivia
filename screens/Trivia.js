@@ -14,7 +14,9 @@ class Trivia extends Component {
     let oneQuestion = categoryData.filter((question, i) => i === index) 
     let question = oneQuestion[0].question.replace(/&quot;/g, '"').replace(/&#039;/g, '') //ensuring that we do not receive &#039; or &quot;
     return (
+      <View style={styles.container}>
       <Text style={styles.question}>{question}</Text>
+      </View>
     )
   }
 
@@ -31,8 +33,8 @@ class Trivia extends Component {
         <View>
           <ScoreBoard/>
           {(index < 9) ?
-             (categoryData.length > 0) ? 
-              this.renderQuestion() : 
+             (categoryData.length > 0) ?
+            this.renderQuestion(): 
               <ActivityIndicator size="large" color="#0000ff" />
            : <FinalScore navigate={this.props.navigation}/>
           }
@@ -47,16 +49,14 @@ class Trivia extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
+  container:{
     alignItems: 'center',
     justifyContent: 'center',
   },
   question: {
     fontSize: 20
   }
-});
+})
 
 mapStateToProps = state => {
   return {
