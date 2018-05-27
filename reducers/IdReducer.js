@@ -10,8 +10,9 @@ export const idReducer = (state = initialState, action) =>{
   return Object.assign({}, state, {
     categoryId: action.payload
   })
-  // return action.payload
   default:
   return state
   }
 }
+
+
