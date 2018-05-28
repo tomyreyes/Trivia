@@ -8,8 +8,8 @@ export const CHANGE_SCORE = 'CHANGE_SCORE'
 export const RESET_SCORE = 'RESET_SCORE'
 export const RESET_INDEX = 'RESET_INDEX'
 export const RESET_CATEGORY_DATA = 'RESET_CATEGORY_DATA'
-export const CHANGE_DIFFICULTY = 'CHANGE_DIFFICULTY'
-export const RESET_DIFFICULTY = 'RESET_DIFFICULTY'
+export const FETCH_GIF_REQUEST = 'FETCH_GIF_REQUEST'
+export const FETCH_GIF_SUCCESS = 'FETCH_GIF_SUCCESS'
 
 export const fetchCategoryRequest = (params) =>{
   return {
@@ -67,9 +67,16 @@ export const resetCategoryData = () => {
   }
 }
 
-export const changeDifficulty = (difficulty) => {
+export const fetchGifRequest= (assessment) => {
   return {
-    type: CHANGE_DIFFICULTY,
-    payload: difficulty
+    type: FETCH_GIF_REQUEST,
+    payload: assessment
+  }
+}
+
+export const fetchGifSuccess = (gif) => {
+  return {
+    type: FETCH_GIF_SUCCESS,
+    payload: gif
   }
 }
