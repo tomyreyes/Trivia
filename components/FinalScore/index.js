@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import { Button } from 'react-native-elements'
+import { StyleSheet, View } from 'react-native'
+import { Button, Text } from 'react-native-elements'
 import { connect } from 'react-redux'
 import HomeScreen from '../../screens/HomeScreen'
 import { fetchCategoryRequest, resetIndex, resetScore, resetCategoryData } from '../../actions'
@@ -26,7 +26,7 @@ class FinalScore extends Component {
     const { score } = this.props.score
     console.log(this.props)
     return <View>
-        <Text>Final Score: {score}</Text>
+        <Text h2>Final Score: {score}</Text>
         <Button title="Restart Game" onPress={this._bookPress}/>
         <Button title="Back to Menu" onPress={this._mainMenu} />
       </View>

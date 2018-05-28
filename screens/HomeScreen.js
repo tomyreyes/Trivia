@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { Badge, Button } from 'react-native-elements'
+import { StyleSheet, View } from 'react-native';
+import { Button, Text } from 'react-native-elements'
 import { connect } from 'react-redux'
 import { fetchCategoryRequest, resetIndex, resetScore, resetCategoryData } from '../actions'
 import Trivia from './Trivia';
@@ -41,20 +41,24 @@ class HomeScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>Select a Game</Text>
+       <Text h2>Geek Trials</Text>
+       <Text h4>Choose a Game:</Text>
         <Button
+          icon={{ name: 'casino' }}
           title="Board Games"
           onPress={this._boardPress}
           backgroundColor={'#0C4399'}
           buttonStyle={styles.button}
         />
         <Button
+          icon={{ name: 'local-library'}}
           title="Books"
           onPress={this._bookPress}
           backgroundColor={'#E00015'}
           buttonStyle={styles.button}
         />
         <Button
+          icon={{ name: 'gamepad'}}
           title="Video Games"
           onPress={this._videoGamePress}
           backgroundColor={'#66079B'}
@@ -71,9 +75,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20
   },
     button: {
       width: 140,
