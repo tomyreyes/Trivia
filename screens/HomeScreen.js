@@ -1,16 +1,25 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Button } from 'react-native-elements'
+import { Badge, Button } from 'react-native-elements'
 import { connect } from 'react-redux'
 import { fetchCategoryRequest, resetIndex, resetScore, resetCategoryData } from '../actions'
 import Trivia from './Trivia';
 import { bindActionCreators } from 'redux'
 
 class HomeScreen extends Component {
-  static navigationOptions = () =>{
+  static navigationOptions = () => {
     title: 'Home'
   }
-  
+
+  _boardPress = () => {
+    const bookId = 16
+    this.props.resetCategoryData()
+    this.props.resetScore()
+    this.props.resetIndex()
+    this.props.fetchCategoryRequest(bookId)
+    this.props.navigation.navigate('Trivia')
+  }
+
   _bookPress = () => {
     const bookId = 10
     this.props.resetCategoryData()
@@ -33,8 +42,24 @@ class HomeScreen extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Select a Game</Text>
-        <Button title="Books" onPress={this._bookPress}/>
-        <Button title="Video Games" onPress={this._videoGamePress} />
+        <Button
+          title="Board Games"
+          onPress={this._boardPress}
+          backgroundColor={'#0C4399'}
+          buttonStyle={styles.button}
+        />
+        <Button
+          title="Books"
+          onPress={this._bookPress}
+          backgroundColor={'#E00015'}
+          buttonStyle={styles.button}
+        />
+        <Button
+          title="Video Games"
+          onPress={this._videoGamePress}
+          backgroundColor={'#66079B'}
+          buttonStyle={styles.button}
+        />
       </View>
     )
   }
@@ -49,7 +74,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20
-  }
+  },
+    button: {
+      width: 140,
+      margin: 3
+    }
 });
 
 mapDispatchToProps = (dispatch) => {
