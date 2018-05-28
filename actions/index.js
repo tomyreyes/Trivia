@@ -8,11 +8,13 @@ export const CHANGE_SCORE = 'CHANGE_SCORE'
 export const RESET_SCORE = 'RESET_SCORE'
 export const RESET_INDEX = 'RESET_INDEX'
 export const RESET_CATEGORY_DATA = 'RESET_CATEGORY_DATA'
+export const CHANGE_DIFFICULTY = 'CHANGE_DIFFICULTY'
+export const RESET_DIFFICULTY = 'RESET_DIFFICULTY'
 
-export const fetchCategoryRequest = (id) =>{
+export const fetchCategoryRequest = (params) =>{
   return {
     type: FETCH_CATEGORY_REQUEST,
-    payload: id
+    payload: params
   }
 }
 
@@ -62,5 +64,12 @@ export const resetCategoryData = () => {
   return {
     type: RESET_CATEGORY_DATA,
     payload: []
+  }
+}
+
+export const changeDifficulty = (difficulty) => {
+  return {
+    type: CHANGE_DIFFICULTY,
+    payload: difficulty
   }
 }

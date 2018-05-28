@@ -27,11 +27,19 @@ class FinalScore extends Component {
     console.log(this.props)
     return <View>
         <Text h2>Final Score: {score}</Text>
-        <Button title="Restart Game" onPress={this._bookPress}/>
-        <Button title="Back to Menu" onPress={this._mainMenu} />
+        <Button title="Restart Game" onPress={this._bookPress} buttonStyle={styles.button} backgroundColor={'#5AAC56'} />
+        <Button title="Back to Menu" onPress={this._mainMenu} buttonStyle={styles.button} backgroundColor={'#E00015'} />
       </View>
   }
 }
+
+
+const styles = StyleSheet.create({
+  button: {
+    width: 140,
+    margin: 3
+  }
+});
 
 mapDispatchToProps = dispatch => {
   return bindActionCreators(

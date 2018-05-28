@@ -8,10 +8,11 @@ function* categorySaga() { //this is a watcher saga, everytime FETCH_CATEGORY_RE
 
 //optionally place in an api directory 
 const fetchCategory = (action) => { //the id will be received when this function is called by callFetchCategories()
- const id = action.payload
+ const { id, difficulty } = action.payload
+ console.log(id, difficulty)
   return axios({
    method: 'GET',
-      url: `https://opentdb.com/api.php?amount=10&category=${id}&type=multiple`
+      url: `https://opentdb.com/api.php?amount=10&category=${id}&type=multiple&difficulty=${difficulty}`
   })
   .then(result => {
     return result.data.results //this is the array of questions, incorrect answers and correct answers 
