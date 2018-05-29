@@ -18,12 +18,7 @@ class HomeScreen extends Component {
   static navigationOptions = () => {
     title: 'Home'
   }
-  componentWillMount() {
-    this.setState({
-      categoryChosen: false
-    })
-  }
-
+ 
   shouldComponentUpdate(nextState) {
     return this.state.categoryChosen !== nextState.categoryChosen
   }
@@ -43,6 +38,7 @@ class HomeScreen extends Component {
     this.setState({ categoryChosen: true, id: 15 })
   }
   _easyPress = () => {
+    this.setState({ categoryChosen: false })
     const { id } = this.state
     const difficulty = 'easy'
     this.props.resetCategoryData()
@@ -52,6 +48,7 @@ class HomeScreen extends Component {
     this.props.navigation.navigate('Trivia')
   }
   _mediumPress = () => {
+    this.setState({ categoryChosen: false })
     const { id } = this.state
     const difficulty = 'medium'
     this.props.resetCategoryData()
@@ -62,6 +59,7 @@ class HomeScreen extends Component {
   }
 
   _hardPress = () => {
+    this.setState({ categoryChosen: false })
     const { id } = this.state
     const difficulty = 'hard'
     this.props.resetCategoryData()
@@ -72,7 +70,6 @@ class HomeScreen extends Component {
   }
 
   render() {
-    console.log(this.props)
     return <View style={styles.container}>
         <Text h2>Geek Trials</Text>
         {!this.state.categoryChosen ? <View>
