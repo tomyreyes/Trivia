@@ -49,10 +49,10 @@ class MultipleChoice extends Component {
     })
     console.log(this.state.answer)
     return <View>
-      <Button title={multipleChoice[0]} buttonStyle={styles.button} onPress={this._pickAnswerA} backgroundColor={this.state.activeA === true ? '#0e6c68' : '#107974'} />
-      <Button title={multipleChoice[1]} buttonStyle={styles.button} onPress={this._pickAnswerB} backgroundColor={this.state.activeB === true ? '#b61b00' : '#cb1f00'} />
-      <Button title={multipleChoice[2]} buttonStyle={styles.button} onPress={this._pickAnswerC} backgroundColor={this.state.activeC === true ? '#6680b7' : '#728fcc'} />
-      <Button title={multipleChoice[3]} buttonStyle={styles.button} onPress={this._pickAnswerD} backgroundColor={this.state.activeD === true ? '#50934b' : '#59a454'} />
+      <Button title={choices[0]} buttonStyle={styles.button} onPress={this._pickAnswerA} backgroundColor={this.state.activeA === true ? '#0e6c68' : '#107974'} />
+      <Button title={choices[1]} buttonStyle={styles.button} onPress={this._pickAnswerB} backgroundColor={this.state.activeB === true ? '#b61b00' : '#cb1f00'} />
+      <Button title={choices[2]} buttonStyle={styles.button} onPress={this._pickAnswerC} backgroundColor={this.state.activeC === true ? '#6680b7' : '#728fcc'} />
+      <Button title={choices[3]} buttonStyle={styles.button} onPress={this._pickAnswerD} backgroundColor={this.state.activeD === true ? '#50934b' : '#59a454'} />
       <Button title={'SUBMIT'} buttonStyle={styles.button} onPress={this._checkAnswer} backgroundColor={'black'} />
       </View>
   }
