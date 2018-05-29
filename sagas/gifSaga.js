@@ -14,7 +14,8 @@ const fetchGif = (action) => {
     url: `https://api.giphy.com/v1/gifs/random?api_key=zVZ3RoEvQhvaeSKml8UmQhQqIAfPb4H0&tag=${keyword}&rating=PG-13`
   })
     .then(result => {
-      return result.data.url
+      console.log(result.data.data)
+      return result.data.data.image_original_url
     })
 }
 

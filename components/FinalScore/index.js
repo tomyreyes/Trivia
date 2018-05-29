@@ -30,16 +30,21 @@ class FinalScore extends Component {
     }
     this.props.fetchGifRequest(keyword)
   }
+
+  shouldComponentUpdate(nextProps){
+    return this.props.gif !== nextProps.gif
+  }
   
   renderGif(){
     const { gif } = this.props.gif
-    return <Image style={{ width: 50, height: 50 }} source={{uri: gif}}/>
+    return <Image style={{ width: 300, height: 250 }} source={{uri: gif}}/>
   }
 
   render() {
+    console.log(this.props)
     const { score } = this.props.score
     const { gif } = this.props.gif
-    return <View>
+    return <View style={styles.container}>
         {gif !== null ? <View>
             <Text h2>Final Score: {score}</Text>
             {this.renderGif()}
@@ -52,9 +57,14 @@ class FinalScore extends Component {
 
 
 const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 13,
+    paddingHorizontal: 20
+  },
   button: {
-    width: 140,
-    margin: 3
+    marginVertical: 3
   }
 });
 

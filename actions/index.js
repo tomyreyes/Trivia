@@ -75,5 +75,6 @@ export const fetchGifRequest= (assessment) => {
 export const fetchGifSuccess = (gif) => {
   return { 
     type: FETCH_GIF_SUCCESSS, 
-    payload: gif }
+    payload: gif 
+  }
 }
