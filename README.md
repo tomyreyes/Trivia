@@ -1,4 +1,4 @@
-# Trivia 
+# Geek Trials
 
 This is a Trivia game made with Redux and React Native. The questions and answers for each category are from The Open Trivia Database's API. 
 I created this project as a lifelong fan of trivia games. These types of games are very nostalgic for me as I recall passing school days with my friends during high school playing various trivia games available on the internet at the time. 
