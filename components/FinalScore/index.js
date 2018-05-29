@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { StyleSheet, View } from 'react-native'
+import { ActivityIndicator, Image, StyleSheet, View } from 'react-native'
 import { Button, Text } from 'react-native-elements'
 import { connect } from 'react-redux'
 import HomeScreen from '../../screens/HomeScreen'
-import { fetchCategoryRequest, resetIndex, resetScore, resetCategoryData } from '../../actions'
+import { fetchCategoryRequest, fetchGifRequest, resetIndex, resetScore, resetCategoryData } from '../../actions'
 import { bindActionCreators } from 'redux'
 
 class FinalScore extends Component {
@@ -20,15 +20,32 @@ class FinalScore extends Component {
     this.props.fetchCategoryRequest(categoryId)
   }
 
+  componentWillMount(){
+    const { score } = this.props.score
+    let keyword = null
+    if (score > 5) {
+      keyword = 'champ'
+    } else {
+      keyword = 'fail'
+    }
+    this.props.fetchGifRequest(keyword)
+  }
   
+  renderGif(){
+    const { gif } = this.props.gif
+    return <Image style={{ width: 50, height: 50 }} source={{uri: gif}}/>
+  }
 
   render() {
     const { score } = this.props.score
-    console.log(this.props)
+    const { gif } = this.props.gif
     return <View>
-        <Text h2>Final Score: {score}</Text>
-        <Button title="Restart Game" onPress={this._bookPress} buttonStyle={styles.button} backgroundColor={'#5AAC56'} />
-        <Button title="Back to Menu" onPress={this._mainMenu} buttonStyle={styles.button} backgroundColor={'#E00015'} />
+        {gif !== null ? <View>
+            <Text h2>Final Score: {score}</Text>
+            {this.renderGif()}
+            <Button title="Restart Game" onPress={this._bookPress} buttonStyle={styles.button} backgroundColor={'#5AAC56'} />
+            <Button title="Back to Menu" onPress={this._mainMenu} buttonStyle={styles.button} backgroundColor={'#E00015'} />
+          </View> : <ActivityIndicator size="large" color="#0000ff" />}
       </View>
   }
 }
@@ -44,11 +61,12 @@ const styles = StyleSheet.create({
 mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
-      fetchCategoryRequest: fetchCategoryRequest,
-      resetScore: resetScore,
+      fetchCategoryRequest,
+      fetchGifRequest,
+      resetScore,
       resetIndex,
       resetIndex,
-      resetCategoryData: resetCategoryData
+      resetCategoryData
     },
     dispatch
   )
@@ -57,7 +75,8 @@ mapDispatchToProps = dispatch => {
 mapStateToProps = state => {
   return {
     score: state.scoreReducer,
-    id: state.idReducer
+    id: state.idReducer,
+    gif: state.gifReducer
   }
 }
 

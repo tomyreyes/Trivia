@@ -1,5 +1,3 @@
-import index from "../components/MultipleChoice";
-
 export const FETCH_CATEGORY_REQUEST = 'FETCH_CATEGORY_REQUEST'
 export const FETCH_CATEGORY_SUCCESS = 'FETCH_CATEGORY_SUCCESS'
 export const FETCH_CATEGORY_ERROR = 'FETCH_CATEGORY_ERROR'
@@ -75,8 +73,7 @@ export const fetchGifRequest= (assessment) => {
 }
 
 export const fetchGifSuccess = (gif) => {
-  return {
-    type: FETCH_GIF_SUCCESS,
-    payload: gif
-  }
+  return { 
+    type: FETCH_GIF_SUCCESSS, 
+    payload: gif }
 }

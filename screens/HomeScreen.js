@@ -83,7 +83,7 @@ class HomeScreen extends Component {
           </View> : <View>
             <Button title="Meh" onPress={this._easyPress} buttonStyle={styles.button} backgroundColor={'#F2B705'} />
             <Button title="A bit harder" onPress={this._mediumPress} buttonStyle={styles.button} backgroundColor={'#F28705'} />
-          <Button title="Spicy" onPress={this._hardPress} buttonStyle={styles.button} backgroundColor={'#gEF4403'}/>
+          <Button title="Spicy" onPress={this._hardPress} buttonStyle={styles.button} backgroundColor={'#EF4403'}/>
           </View>}
       </View>
   }
