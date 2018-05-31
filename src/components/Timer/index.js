@@ -32,6 +32,10 @@ class Timer extends Component {
     setInterval(this.timer, 1000)
   }
 
+ componentWillMount(){
+   clearInterval(this.timer)
+ }
+
   render() {
     return (
       <View>

@@ -1,4 +1,4 @@
-import { FETCH_GIF_SUCCESS } from "../actions";
+import { FETCH_GIF_SUCCESS } from "../constants";
 
 const initialState = {
   gif: null

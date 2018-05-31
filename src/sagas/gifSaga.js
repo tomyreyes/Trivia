@@ -1,5 +1,5 @@
 import { call, put, takeLatest, } from 'redux-saga/effects'
-import { FETCH_GIF_REQUEST, FETCH_GIF_SUCCESS } from '../actions';
+import { FETCH_GIF_REQUEST, FETCH_GIF_SUCCESS } from '../constants';
 import axios from 'axios'
 
 

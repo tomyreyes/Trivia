@@ -1,4 +1,4 @@
-import { CHANGE_SCORE, RESET_SCORE} from '../actions'
+import { CHANGE_SCORE, RESET_SCORE} from '../constants'
 
 const initialState = {
   score: 0

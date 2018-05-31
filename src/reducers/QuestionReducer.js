@@ -1,4 +1,4 @@
-import { CHANGE_QUESTION, RESET_INDEX } from '../actions'
+import { CHANGE_QUESTION, RESET_INDEX } from '../constants'
 
 const initialState = {
   index: 0

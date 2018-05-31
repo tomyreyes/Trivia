@@ -1,4 +1,4 @@
-import { FETCH_CATEGORY_REQUEST } from "../actions";
+import { FETCH_CATEGORY_REQUEST } from "../constants";
 
 const initialState = {
   categoryId: 0,

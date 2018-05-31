@@ -1,4 +1,4 @@
-import { FETCH_CATEGORY_SUCCESS, RESET_CATEGORY_DATA } from "../actions";
+import { FETCH_CATEGORY_SUCCESS, RESET_CATEGORY_DATA } from "../constants";
 
 const initialState = {
   categoryData: [],

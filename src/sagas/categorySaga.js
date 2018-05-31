@@ -1,5 +1,5 @@
 import { call, put, takeLatest,  } from 'redux-saga/effects'
-import { FETCH_CATEGORY_SUCCESS, FETCH_CATEGORY_REQUEST} from '../actions';
+import { FETCH_CATEGORY_SUCCESS, FETCH_CATEGORY_REQUEST} from '../constants';
 import axios from 'axios'
 
 export function* categorySaga() { //this is a watcher saga, everytime FETCH_CATEGORY_REQUEST is dispatched, we will callFetchCategory 
