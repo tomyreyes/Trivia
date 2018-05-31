@@ -70,23 +70,33 @@ class HomeScreen extends Component {
   }
 
   render() {
-    return <View style={styles.container}>
+    return <View style={styles.wrap}>
         <Text h2>Geek Trials</Text>
-        {!this.state.categoryChosen ? <View>
+      {!this.state.categoryChosen ? <View style={styles.container}>
             <Text h4>Choose a Game:</Text>
             <Button icon={{ name: 'casino' }} title="Board Games" onPress={this._boardPress} backgroundColor={'#0C4399'} buttonStyle={styles.button} />
             <Button icon={{ name: 'local-library' }} title="Books" onPress={this._bookPress} backgroundColor={'#E00015'} buttonStyle={styles.button} />
-            <Button icon={{ name: 'gamepad' }} title="Video Games" onPress={this._videoGamePress} backgroundColor={'#66079B'} buttonStyle={styles.button} />
-          </View> : <View>
-            <Button title="Meh" onPress={this._easyPress} buttonStyle={styles.button} backgroundColor={'#F2B705'} />
-            <Button title="A bit harder" onPress={this._mediumPress} buttonStyle={styles.button} backgroundColor={'#F28705'} />
-          <Button title="Spicy" onPress={this._hardPress} buttonStyle={styles.button} backgroundColor={'#EF4403'}/>
-          </View>}
+            <Button icon={{ name: 'videogame-asset' }} title="Video Games" onPress={this._videoGamePress} backgroundColor={'#66079B'} buttonStyle={styles.button} />
+          </View> :   
+        <View style={styles.container}>
+            <Text h4>Select Difficulty:</Text>
+            <Button title="Mild" onPress={this._easyPress} buttonStyle={styles.button} backgroundColor={'#F2B705'} />
+            <Button title="Medium" onPress={this._mediumPress} buttonStyle={styles.button} backgroundColor={'#F28705'} />
+            <Button icon={{ name: 'whatshot' }} title="Spicy" onPress={this._hardPress} buttonStyle={styles.button} backgroundColor={'#EF4403'} />
+          </View>
+        }
       </View>
   }
 }
 
 const styles = StyleSheet.create({
+  wrap:{
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: 50
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -95,7 +105,7 @@ const styles = StyleSheet.create({
   },
     button: {
       width: 140,
-      margin: 3
+      marginVertical: 2
     },
 });
 
