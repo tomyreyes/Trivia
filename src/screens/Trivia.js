@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import MultipleChoice from '../components/MultipleChoice'
 import ScoreBoard from '../components/ScoreBoard'
 import FinalScore from '../components/FinalScore'
+import Timer from '../components/Timer'
 
 class Trivia extends Component {
   
@@ -30,10 +31,14 @@ class Trivia extends Component {
   
       return(
         <View>
-          <ScoreBoard/>
+         
           {(index < 9) ?
              (categoryData.length > 0) ?
-            this.renderQuestion(): 
+             <View>
+            <ScoreBoard />
+            <Timer/>
+            {this.renderQuestion()}
+            </View>: 
               <ActivityIndicator size="large" color="#0000ff" />
            : <FinalScore navigate={this.props.navigation}/>
           }
