@@ -4,6 +4,7 @@ import { idReducer } from './IdReducer'
 import { questionReducer } from './QuestionReducer'
 import { scoreReducer } from './ScoreReducer'
 import { gifReducer } from './GifReducer'
+import { timerReducer} from './TimerReducer'
 
 
 export const rootReducer = combineReducers({
@@ -11,5 +12,6 @@ export const rootReducer = combineReducers({
   idReducer,
   gifReducer,
   questionReducer,
-  scoreReducer
+  scoreReducer,
+  timerReducer
 })
