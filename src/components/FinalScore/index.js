@@ -3,7 +3,7 @@ import { ActivityIndicator, Image, StyleSheet, View } from 'react-native'
 import { Button, Text } from 'react-native-elements'
 import { connect } from 'react-redux'
 import HomeScreen from '../../screens/HomeScreen'
-import { fetchCategoryRequest, fetchGifRequest, resetIndex, resetScore, resetCategoryData } from '../../actions'
+import { fetchCategoryRequest, fetchGifRequest, resetIndex, resetScore, resetTimer, resetCategoryData } from '../../actions'
 import { bindActionCreators } from 'redux'
 
 class FinalScore extends Component {
@@ -12,12 +12,14 @@ class FinalScore extends Component {
     this.props.navigate.navigate('HomeScreen')
   }
 
-  _bookPress = () => {
-    const { categoryId } = this.props.id
+  _restartGame = () => {
+    const { id } = this.props.id
+    const { difficulty} = this.props.id
     this.props.resetCategoryData()
     this.props.resetScore()
     this.props.resetIndex()
-    this.props.fetchCategoryRequest(categoryId)
+    this.props.resetTimer()
+    this.props.fetchCategoryRequest({id, difficulty})
   }
 
   componentWillMount(){
@@ -48,7 +50,7 @@ class FinalScore extends Component {
         {gif !== null ? <View>
             <Text h2>Final Score: {score}</Text>
             {this.renderGif()}
-            <Button title="Restart Game" onPress={this._bookPress} buttonStyle={styles.button} backgroundColor={'#5AAC56'} />
+            <Button title="Restart Game" onPress={this._restartGame} buttonStyle={styles.button} backgroundColor={'#5AAC56'} />
             <Button title="Back to Menu" onPress={this._mainMenu} buttonStyle={styles.button} backgroundColor={'#E00015'} />
           </View> : <ActivityIndicator size="large" color="#0000ff" />}
       </View>
@@ -75,7 +77,7 @@ mapDispatchToProps = dispatch => {
       fetchGifRequest,
       resetScore,
       resetIndex,
-      resetIndex,
+      resetTimer,
       resetCategoryData
     },
     dispatch

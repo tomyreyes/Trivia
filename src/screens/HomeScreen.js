@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Button, Text } from 'react-native-elements'
 import { connect } from 'react-redux'
-import { fetchCategoryRequest, resetIndex, resetScore, resetCategoryData } from '../actions'
+import { fetchCategoryRequest, resetIndex, resetScore, resetTimer, resetCategoryData } from '../actions'
 import Trivia from './Trivia';
 import { bindActionCreators } from 'redux'
 
@@ -45,6 +45,7 @@ class HomeScreen extends Component {
     this.props.resetScore()
     this.props.resetIndex()
     this.props.fetchCategoryRequest({ id, difficulty })
+    this.props.resetTimer()
     this.props.navigation.navigate('Trivia')
   }
   _mediumPress = () => {
@@ -55,6 +56,7 @@ class HomeScreen extends Component {
     this.props.resetScore()
     this.props.resetIndex()
     this.props.fetchCategoryRequest({ id, difficulty })
+    this.props.resetTimer()
     this.props.navigation.navigate('Trivia')
   }
 
@@ -66,6 +68,7 @@ class HomeScreen extends Component {
     this.props.resetScore()
     this.props.resetIndex()
     this.props.fetchCategoryRequest({ id, difficulty })
+    this.props.resetTimer()
     this.props.navigation.navigate('Trivia')
   }
 
@@ -118,10 +121,11 @@ mapStateToProps = state => {
 
 mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    fetchCategoryRequest: fetchCategoryRequest,
-    resetScore: resetScore,
-    resetIndex, resetIndex,
-    resetCategoryData: resetCategoryData
+    fetchCategoryRequest,
+    resetScore,
+    resetIndex,
+    resetCategoryData,
+    resetTimer
   }, dispatch)
 }
 

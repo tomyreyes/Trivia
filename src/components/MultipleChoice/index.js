@@ -3,7 +3,7 @@ import { StyleSheet, Text, View} from 'react-native'
 import { Button } from 'react-native-elements'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { changeQuestion, changeScore } from '../../actions'
+import { changeQuestion, changeScore, resetTimer } from '../../actions'
 
 class MultipleChoice extends Component {
   constructor() {
@@ -171,7 +171,10 @@ class MultipleChoice extends Component {
     if(index > 9) {
       console.log('end of question set')
       //render homescreen 
-    } else this.props.changeQuestion() 
+    } else {
+      this.props.changeQuestion() 
+      this.props.resetTimer()
+    }
   }
 
   render() {
@@ -198,8 +201,9 @@ mapStateToProps = state => {
 
 mapDispatchToProps = dispatch => { 
   return bindActionCreators({
-    changeQuestion: changeQuestion,
-    changeScore: changeScore
+    changeQuestion,
+    changeScore,
+    resetTimer
   },dispatch)
 }
 
