@@ -18,9 +18,10 @@ class Timer extends Component {
   }
   
   componentDidMount(){
+    this.props.resetTimer()
     setInterval(this.setTimer, 1000)
   }
-  
+
   componentWillUnmount(){
     clearInterval(this.setTimer)
   }

@@ -38,7 +38,7 @@ class Trivia extends Component {
             <ScoreBoard />
             <Timer/>
             {this.renderQuestion()}
-            </View>: 
+            </View> : 
               <ActivityIndicator size="large" color="#0000ff" />
            : <FinalScore navigate={this.props.navigation}/>
           }

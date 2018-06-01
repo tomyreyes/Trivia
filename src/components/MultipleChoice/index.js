@@ -41,7 +41,7 @@ class MultipleChoice extends Component {
       }
     )
   }
-
+  
   renderMultipleChoice() {
     const { multipleChoice } = this.state
     const choices = multipleChoice.map(choice => { //ensuring that we do not receive &#039; or &quot;

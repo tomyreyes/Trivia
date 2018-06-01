@@ -45,7 +45,6 @@ class HomeScreen extends Component {
     this.props.resetScore()
     this.props.resetIndex()
     this.props.fetchCategoryRequest({ id, difficulty })
-    this.props.resetTimer()
     this.props.navigation.navigate('Trivia')
   }
   _mediumPress = () => {
@@ -56,7 +55,6 @@ class HomeScreen extends Component {
     this.props.resetScore()
     this.props.resetIndex()
     this.props.fetchCategoryRequest({ id, difficulty })
-    this.props.resetTimer()
     this.props.navigation.navigate('Trivia')
   }
 
@@ -68,7 +66,6 @@ class HomeScreen extends Component {
     this.props.resetScore()
     this.props.resetIndex()
     this.props.fetchCategoryRequest({ id, difficulty })
-    this.props.resetTimer()
     this.props.navigation.navigate('Trivia')
   }
 

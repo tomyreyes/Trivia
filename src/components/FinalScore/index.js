@@ -18,7 +18,6 @@ class FinalScore extends Component {
     this.props.resetCategoryData()
     this.props.resetScore()
     this.props.resetIndex()
-    this.props.resetTimer()
     this.props.fetchCategoryRequest({id, difficulty})
   }
 
