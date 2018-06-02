@@ -33,8 +33,8 @@ class Trivia extends Component {
         <View>
          
           {(index < 9) ?
-             (categoryData.length > 0) ?
-             <View>
+            (categoryData.length > 0) ?
+            <View>
             <ScoreBoard />
             <Timer/>
             {this.renderQuestion()}

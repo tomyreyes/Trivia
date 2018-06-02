@@ -19,11 +19,11 @@ class Timer extends Component {
   
   componentDidMount(){
     this.props.resetTimer()
-    setInterval(this.setTimer, 1000)
+    this.intervalID =  setInterval(this.setTimer, 1000)
   }
 
   componentWillUnmount(){
-    clearInterval(this.setTimer)
+    clearInterval(this.intervalID)
   }
 
   render() {
