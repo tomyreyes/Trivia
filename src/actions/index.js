@@ -71,7 +71,6 @@ export const fetchGifSuccess = (gif) => {
 }
 
 export const startTimer = () => {
-  console.log('starting')
   return {
     type: type.START_TIMER,
     payload: -1
@@ -79,7 +78,6 @@ export const startTimer = () => {
 }
 
 export const resetTimer = () => {
-  console.log('resetting')
   return {
     type: type.RESET_TIMER,
     payload: 10

@@ -42,7 +42,6 @@ class FinalScore extends Component {
   }
 
   render() {
-    console.log(this.props)
     const { score } = this.props.score
     const { gif } = this.props.gif
     return <View style={styles.container}>
