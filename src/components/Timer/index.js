@@ -7,7 +7,7 @@ import { changeQuestion, resetTimer, startTimer } from '../../actions'
 
 class Timer extends Component {
   
-  setTimer = () => {
+  _setTimer = () => {
     const { timer } = this.props.timer
     if(timer > 0) {
       this.props.startTimer()
@@ -19,7 +19,7 @@ class Timer extends Component {
   
   componentWillMount(){
     this.props.resetTimer()
-    this.intervalID =  setInterval(this.setTimer, 1000)
+    this.intervalID =  setInterval(this._setTimer, 1000)
   }
 
   componentWillUnmount(){

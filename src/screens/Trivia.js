@@ -9,7 +9,7 @@ import Timer from '../components/Timer'
 
 class Trivia extends Component {
   
-  renderQuestion(){
+  _renderQuestion(){
     const { index } = this.props.questionIndex
     const { categoryData } = this.props.categoryData
     let oneQuestion = categoryData.filter((question, i) => i === index) 
@@ -37,7 +37,7 @@ class Trivia extends Component {
             <View>
             <ScoreBoard />
             <Timer/>
-            {this.renderQuestion()}
+            {this._renderQuestion()}
             </View> : 
               <ActivityIndicator size="large" color="#0000ff" />
            : <FinalScore navigate={this.props.navigation}/>

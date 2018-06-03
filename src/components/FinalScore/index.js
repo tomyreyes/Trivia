@@ -36,7 +36,7 @@ class FinalScore extends Component {
     return this.props.gif !== nextProps.gif
   }
   
-  renderGif(){
+  _renderGif(){
     const { gif } = this.props.gif
     return <Image style={{ width: 300, height: 250 }} source={{uri: gif}}/>
   }
@@ -47,7 +47,7 @@ class FinalScore extends Component {
     return <View style={styles.container}>
         {gif !== null ? <View>
             <Text h2>Final Score: {score}</Text>
-            {this.renderGif()}
+            {this._renderGif()}
             <Button title="Restart Game" onPress={this._restartGame} buttonStyle={styles.button} backgroundColor={'#5AAC56'} />
             <Button title="Back to Menu" onPress={this._mainMenu} buttonStyle={styles.button} backgroundColor={'#E00015'} />
           </View> : <ActivityIndicator size="large" color="#0000ff" />}
