@@ -74,9 +74,9 @@ class HomeScreen extends Component {
         <Text h2>Geek Trials</Text>
       {!this.state.categoryChosen ? <View style={styles.container}>
             <Text h4>Choose a Game:</Text>
-            <Button icon={{ name: 'casino' }} title="Board Games" onPress={this._boardPress} backgroundColor={'#0C4399'} buttonStyle={styles.button} />
-            <Button icon={{ name: 'local-library' }} title="Books" onPress={this._bookPress} backgroundColor={'#E00015'} buttonStyle={styles.button} />
-            <Button icon={{ name: 'videogame-asset' }} title="Video Games" onPress={this._videoGamePress} backgroundColor={'#66079B'} buttonStyle={styles.button} />
+        <Button icon={{ name: 'casino' }} title="Board Games" onPress={this._boardPress} backgroundColor={'#007BFD'} buttonStyle={styles.button} />
+        <Button icon={{ name: 'local-library' }} title="Books" onPress={this._bookPress} backgroundColor={'#FD012A'} buttonStyle={styles.button} />
+        <Button icon={{ name: 'videogame-asset' }} title="Video Games" onPress={this._videoGamePress} backgroundColor={'#A700FF'} buttonStyle={styles.button} />
           </View> :   
         <View style={styles.container}>
             <Text h4>Select Difficulty:</Text>

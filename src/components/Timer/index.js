@@ -17,7 +17,7 @@ class Timer extends Component {
     }
   }
   
-  componentDidMount(){
+  componentWillMount(){
     this.props.resetTimer()
     this.intervalID =  setInterval(this.setTimer, 1000)
   }
@@ -30,7 +30,7 @@ class Timer extends Component {
     
     const { timer } = this.props.timer
     return (
-      <View>
+      <View style={styles.container}>
         <Text h4>{timer}</Text>
       </View>
     )
@@ -38,9 +38,11 @@ class Timer extends Component {
 }
 
 const styles = StyleSheet.create({
-  badge: {
-    margin: 3,
-    alignSelf: 'flex-end'
+  container: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 13,
+    paddingHorizontal: 20
   }
 })
 
