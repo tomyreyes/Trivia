@@ -15,7 +15,7 @@ class HomeScreen extends Component {
       category: null
     }
   }
-  
+
   shouldComponentUpdate(nextState) {
     return this.state.categoryChosen !== nextState.categoryChosen
   }
@@ -75,6 +75,12 @@ class HomeScreen extends Component {
     this.props.navigation.navigate('Trivia', { category: this.state.category })
   }
 
+  _return = () => {
+    this.setState({
+      categoryChosen: null
+    })
+  }
+
   render() {
     return <View style={styles.wrap}>
         <Text h2>Geek Trials</Text>
@@ -89,6 +95,7 @@ class HomeScreen extends Component {
             <Button title="Mild" onPress={this._easyPress} buttonStyle={styles.button} backgroundColor={'#F2B705'} />
             <Button title="Medium" onPress={this._mediumPress} buttonStyle={styles.button} backgroundColor={'#F28705'} />
             <Button icon={{ name: 'whatshot' }} title="Spicy" onPress={this._hardPress} buttonStyle={styles.button} backgroundColor={'#EF4403'} />
+            <Button title="Change Game" onPress={this._return} buttonStyle={styles.button} backgroundColor={'#262626'}/>
           </View>
         }
       </View>
