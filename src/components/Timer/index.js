@@ -31,7 +31,7 @@ class Timer extends Component {
     const { timer } = this.props.timer
     return (
       <View style={styles.container}>
-        <Text h4>{timer}</Text>
+        <Text h4 style={styles.time}>{timer}</Text>
       </View>
     )
   }
@@ -43,6 +43,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: 13,
     paddingHorizontal: 20
+  },
+  time: {
+    paddingBottom: 20
   }
 })
 

@@ -84,43 +84,45 @@ class HomeScreen extends Component {
   render() {
     return <View style={styles.wrap}>
         <Text h2>Geek Trials</Text>
-      {!this.state.categoryChosen ? <View style={styles.container}>
-            <Text h4>Choose a Game:</Text>
-        <Button icon={{ name: 'casino' }} title="Board Games" onPress={this._boardPress} backgroundColor={'#007BFD'} buttonStyle={styles.button} />
-        <Button icon={{ name: 'local-library' }} title="Books" onPress={this._bookPress} backgroundColor={'#FD012A'} buttonStyle={styles.button} />
-        <Button icon={{ name: 'videogame-asset' }} title="Video Games" onPress={this._videoGamePress} backgroundColor={'#A700FF'} buttonStyle={styles.button} />
-          </View> :   
-        <View style={styles.container}>
-            <Text h4>Select Difficulty:</Text>
+
+        {!this.state.categoryChosen ? <View style={styles.container}>
+            <Text h4 style={styles.subheader}>Choose a Game:</Text>
+        <Button icon={{ name: 'casino' }} title="Board Games" onPress={this._boardPress} backgroundColor={'#0351E7'} buttonStyle={styles.button} />
+            <Button icon={{ name: 'local-library' }} title="Books" onPress={this._bookPress} backgroundColor={'#ED2F77'} buttonStyle={styles.button} />
+        <Button icon={{ name: 'videogame-asset' }} title="Video Games" onPress={this._videoGamePress} backgroundColor={'#7E26F2'} buttonStyle={styles.button} />
+          </View> : <View style={styles.container}>
+            <Text h4 style={styles.subheader}>Select Difficulty:</Text>
             <Button title="Mild" onPress={this._easyPress} buttonStyle={styles.button} backgroundColor={'#F2B705'} />
             <Button title="Medium" onPress={this._mediumPress} buttonStyle={styles.button} backgroundColor={'#F28705'} />
             <Button icon={{ name: 'whatshot' }} title="Spicy" onPress={this._hardPress} buttonStyle={styles.button} backgroundColor={'#EF4403'} />
-            <Button title="Change Game" onPress={this._return} buttonStyle={styles.button} backgroundColor={'#262626'}/>
-          </View>
-        }
+            <Button title="Change Game" onPress={this._return} buttonStyle={styles.button} backgroundColor={'#262626'} />
+          </View>}
       </View>
   }
 }
 
 const styles = StyleSheet.create({
-  wrap:{
+  wrap: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFF9A7',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: 50
+    paddingTop: 120
   },
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFF9A7',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
-    button: {
-      width: 140,
-      marginVertical: 2
-    },
-});
+  button: {
+    width: 140,
+    marginVertical: 2
+  },
+  subheader : {
+    paddingBottom: 20
+  }
+})
 
 mapStateToProps = state => {
   return {

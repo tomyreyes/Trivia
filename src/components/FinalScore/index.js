@@ -50,7 +50,12 @@ class FinalScore extends Component {
             {this._renderGif()}
             <Button title="Restart Game" onPress={this._restartGame} buttonStyle={styles.button} backgroundColor={'#5AAC56'} />
             <Button title="Back to Menu" onPress={this._mainMenu} buttonStyle={styles.button} backgroundColor={'#E00015'} />
-          </View> : <ActivityIndicator size="large" color="#0000ff" />}
+          </View> : 
+          <View style={styles.loading}>
+          <ActivityIndicator size="large" color="#0000ff" />
+          <Text>Calculating....</Text>
+          </View>
+        }
       </View>
   }
 }
@@ -58,15 +63,21 @@ class FinalScore extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 13,
-    paddingHorizontal: 20
+    paddingHorizontal: 20,
+    backgroundColor: '#FFF9A7'
   },
   button: {
     marginVertical: 3
+  },
+  loading: {
+    alignItems: 'center',
+    justifyContent: 'center'
   }
-});
+})
 
 mapDispatchToProps = dispatch => {
   return bindActionCreators(

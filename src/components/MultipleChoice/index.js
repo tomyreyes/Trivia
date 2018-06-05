@@ -45,7 +45,7 @@ class MultipleChoice extends Component {
   _renderMultipleChoice() {
     const { multipleChoice } = this.state
     const choices = multipleChoice.map(choice => { //ensuring that we do not receive &#039; or &quot;
-      return choice.replace(/&quot;/g, '"').replace(/&#039;/g, '')
+      return choice.replace(/&quot;/g, '"').replace(/&#039;/g, '').replace(/&amp;/g, '&')
     })
     console.log(this.state.answer)
     return <View>
