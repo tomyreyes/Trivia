@@ -11,14 +11,11 @@ class HomeScreen extends Component {
     super()
     this.state = {
       categoryChosen: false,
-      id: null
+      id: null,
+      category: null
     }
   }
-
-  static navigationOptions = () => {
-    title: 'Home'
-  }
- 
+  
   shouldComponentUpdate(nextState) {
     return this.state.categoryChosen !== nextState.categoryChosen
   }
@@ -26,16 +23,25 @@ class HomeScreen extends Component {
   _boardPress = () => {
     this.setState({
       categoryChosen: true,
-      id: 16
+      id: 16,
+      category: 'Board Games'
     })
   }
 
   _bookPress = () => {
-    this.setState({ categoryChosen: true, id: 10 })
+    this.setState({ 
+      categoryChosen: true, 
+      id: 10, 
+      category: 'Books'
+    })
   }
 
   _videoGamePress = () => {
-    this.setState({ categoryChosen: true, id: 15 })
+    this.setState({ 
+      categoryChosen: true,
+       id: 15,
+       category: 'Video Games' 
+      })
   }
   _easyPress = () => {
     this.setState({ categoryChosen: false })
@@ -45,7 +51,7 @@ class HomeScreen extends Component {
     this.props.resetScore()
     this.props.resetIndex()
     this.props.fetchCategoryRequest({ id, difficulty })
-    this.props.navigation.navigate('Trivia')
+    this.props.navigation.navigate('Trivia', {category: this.state.category})
   }
   _mediumPress = () => {
     this.setState({ categoryChosen: false })
@@ -55,7 +61,7 @@ class HomeScreen extends Component {
     this.props.resetScore()
     this.props.resetIndex()
     this.props.fetchCategoryRequest({ id, difficulty })
-    this.props.navigation.navigate('Trivia')
+    this.props.navigation.navigate('Trivia', { category: this.state.category })
   }
 
   _hardPress = () => {
@@ -66,7 +72,7 @@ class HomeScreen extends Component {
     this.props.resetScore()
     this.props.resetIndex()
     this.props.fetchCategoryRequest({ id, difficulty })
-    this.props.navigation.navigate('Trivia')
+    this.props.navigation.navigate('Trivia', { category: this.state.category })
   }
 
   render() {

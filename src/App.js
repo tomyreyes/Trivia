@@ -7,8 +7,18 @@ import { Provider } from 'react-redux'
 import store from './store'
 
 const MainNavigator = new createStackNavigator({
-  HomeScreen: { screen: HomeScreen },
-  Trivia: { screen: Trivia }
+  HomeScreen: { 
+    screen: HomeScreen,
+    navigationOptions: {
+      title: 'Home'
+    }
+  },
+  Trivia: { 
+    screen: Trivia,
+    navigationOptions: ({ navigation }) => ({
+      title: `${navigation.state.params.category}`
+    })
+  }
 })
 
 class App extends Component {

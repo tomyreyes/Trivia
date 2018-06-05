@@ -14,7 +14,6 @@ const fetchCategory = (action) => { //the id will be received when this function
       url: `https://opentdb.com/api.php?amount=10&category=${id}&type=multiple&difficulty=${difficulty}`
   })
   .then(result => {
-    console.log(result)
     return result.data.results //this is the array of questions, incorrect answers and correct answers 
   })
 }

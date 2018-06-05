@@ -8,6 +8,8 @@ import FinalScore from '../components/FinalScore'
 import Timer from '../components/Timer'
 
 class Trivia extends Component {
+
+  
   
   _renderQuestion(){
     const { index } = this.props.questionIndex
@@ -26,6 +28,7 @@ class Trivia extends Component {
   }
  
   render(){
+    console.log(this.props)
     const { categoryData } = this.props.categoryData
     const { index } = this.props.questionIndex
   
