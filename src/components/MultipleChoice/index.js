@@ -20,6 +20,7 @@ class MultipleChoice extends Component {
     }
   }
   
+  
   componentWillMount() {
     const { index } = this.props.questionIndex
     const { categoryData } = this.props.categoryData
@@ -41,6 +42,8 @@ class MultipleChoice extends Component {
       }
     )
   }
+
+  //I can minimize this through creating an array. 
   
   _renderMultipleChoice() {
     const { multipleChoice } = this.state
@@ -87,8 +90,9 @@ class MultipleChoice extends Component {
 
     }
   }
+  //I CAN ALSO MINIMIZE THESE INTO ONE FUNCTION 
 
-  //onPress functions
+  //onPress functions 
   _pickAnswerA = () => {
     const { activeA, activeB, activeC, activeD, multipleChoice } = this.state
     if (activeA === true || activeB === true || activeC === true || activeD === true) {
